@@ -17,7 +17,7 @@ def get_chroma_db():
         # In Lambda runtime, we need to copy CromaDB to /tmp so it can have write prmissions
         if IS_USING_IMAGE_RUNTIME:
             __import__("pysqlite3")
-            sys.moodules["sqlite3"] = sys.modules.pop("pysqlite3")
+            sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
             copy_chroma_db_to_tmp()
 
 
